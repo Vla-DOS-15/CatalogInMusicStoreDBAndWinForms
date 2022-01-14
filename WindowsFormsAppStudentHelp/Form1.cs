@@ -55,7 +55,7 @@ namespace WindowsFormsAppStudentHelp
 
         }
 
-        private void btn_select_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT CatalogInMusicStore.Id, CatalogInMusicStore.Price, CatalogInMusicStore.Quantity, Performers.Performer, Genres.Genre FROM CatalogInMusicStore, Performers, Genres, Recordings WHERE CatalogInMusicStore.IdPerformers = Performers.IdPerformer AND CatalogInMusicStore.IdGenres = Genres.IdGenre and CatalogInMusicStore.IdRecords = Recordings.IdRecord AND Recordings.AlbumTitle = 'Love Yurself'", sqlConnection);
             //SqlDataAdapter dataAdapter = new SqlDataAdapter($"SELECT * FROM Recordings WHERE AlbumTitle = 'Butter'", sqlConnection);
@@ -90,5 +90,20 @@ namespace WindowsFormsAppStudentHelp
         {
 
         }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //private void button1_Click_1(object sender, EventArgs e)
+        //{
+
+        //}
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }
