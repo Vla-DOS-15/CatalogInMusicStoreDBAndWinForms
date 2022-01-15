@@ -61,9 +61,18 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tb_Perfomers = new System.Windows.Forms.TextBox();
+            this.tb_RecordCompanys = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btn_Perfomers = new System.Windows.Forms.Button();
+            this.btn_RecordCompanys = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tb_Album = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btn_Album = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.INSERT.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -83,7 +92,7 @@
             this.INSERT.Location = new System.Drawing.Point(0, 0);
             this.INSERT.Name = "INSERT";
             this.INSERT.SelectedIndex = 0;
-            this.INSERT.Size = new System.Drawing.Size(792, 503);
+            this.INSERT.Size = new System.Drawing.Size(820, 503);
             this.INSERT.TabIndex = 0;
             // 
             // tabPage1
@@ -116,7 +125,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(783, 424);
+            this.tabPage1.Size = new System.Drawing.Size(812, 477);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "INSERT";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -301,12 +310,15 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.tableLayoutPanel2);
             this.tabPage2.Controls.Add(this.tableLayoutPanel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(784, 477);
+            this.tabPage2.Size = new System.Drawing.Size(812, 477);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -360,55 +372,162 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBox2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tb_Album, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.btn_RecordCompanys, 0, 11);
+            this.tableLayoutPanel2.Controls.Add(this.tb_RecordCompanys, 0, 10);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 9);
+            this.tableLayoutPanel2.Controls.Add(this.btn_Perfomers, 0, 8);
+            this.tableLayoutPanel2.Controls.Add(this.tb_Perfomers, 0, 7);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.btn_Album, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 3);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(624, 6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.31507F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.68493F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(157, 463);
+            this.tableLayoutPanel2.RowCount = 12;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.85185F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.14815F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 21F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(192, 362);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // textBox1
+            // tb_Perfomers
             // 
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.tb_Perfomers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_Perfomers.Location = new System.Drawing.Point(3, 140);
+            this.tb_Perfomers.Name = "tb_Perfomers";
+            this.tb_Perfomers.Size = new System.Drawing.Size(186, 20);
+            this.tb_Perfomers.TabIndex = 1;
             // 
-            // textBox2
+            // tb_RecordCompanys
             // 
-            this.textBox2.Location = new System.Drawing.Point(3, 39);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.tb_RecordCompanys.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tb_RecordCompanys.Location = new System.Drawing.Point(3, 238);
+            this.tb_RecordCompanys.Name = "tb_RecordCompanys";
+            this.tb_RecordCompanys.Size = new System.Drawing.Size(186, 20);
+            this.tb_RecordCompanys.TabIndex = 2;
             // 
-            // textBox3
+            // label2
             // 
-            this.textBox3.Location = new System.Drawing.Point(3, 76);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, -146);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Пошук за виконавцем";
+            // 
+            // btn_Perfomers
+            // 
+            this.btn_Perfomers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Perfomers.Location = new System.Drawing.Point(3, 165);
+            this.btn_Perfomers.Name = "btn_Perfomers";
+            this.btn_Perfomers.Size = new System.Drawing.Size(186, 23);
+            this.btn_Perfomers.TabIndex = 6;
+            this.btn_Perfomers.Text = "ПОШУК";
+            this.btn_Perfomers.UseVisualStyleBackColor = true;
+            this.btn_Perfomers.Click += new System.EventHandler(this.btn_Perfomers_Click);
+            // 
+            // btn_RecordCompanys
+            // 
+            this.btn_RecordCompanys.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_RecordCompanys.Location = new System.Drawing.Point(3, 266);
+            this.btn_RecordCompanys.Name = "btn_RecordCompanys";
+            this.btn_RecordCompanys.Size = new System.Drawing.Size(186, 31);
+            this.btn_RecordCompanys.TabIndex = 7;
+            this.btn_RecordCompanys.Text = "ПОШУК";
+            this.btn_RecordCompanys.UseVisualStyleBackColor = true;
+            this.btn_RecordCompanys.Click += new System.EventHandler(this.btn_RecordCompanys_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Location = new System.Drawing.Point(3, 214);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(186, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Пошук за студією звукозапису";
+            // 
+            // tb_Album
+            // 
+            this.tb_Album.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_Album.Location = new System.Drawing.Point(3, 37);
+            this.tb_Album.Name = "tb_Album";
+            this.tb_Album.Size = new System.Drawing.Size(186, 20);
+            this.tb_Album.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Location = new System.Drawing.Point(3, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(186, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Пошук за виконавцем";
+            // 
+            // btn_Album
+            // 
+            this.btn_Album.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Album.Location = new System.Drawing.Point(3, 63);
+            this.btn_Album.Name = "btn_Album";
+            this.btn_Album.Size = new System.Drawing.Size(186, 28);
+            this.btn_Album.TabIndex = 12;
+            this.btn_Album.Text = "ПОШУК";
+            this.btn_Album.UseVisualStyleBackColor = true;
+            this.btn_Album.Click += new System.EventHandler(this.btn_Album_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(627, 450);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Пошук за назвою альбома";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Кількість продаж",
+            "Кількість альбомів"});
+            this.comboBox1.Location = new System.Drawing.Point(670, 385);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 29;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 126);
+            this.button1.Location = new System.Drawing.Point(695, 425);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
+            this.button1.TabIndex = 30;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 503);
+            this.ClientSize = new System.Drawing.Size(820, 503);
             this.Controls.Add(this.INSERT);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -417,6 +536,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -462,10 +582,19 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tb_Perfomers;
+        private System.Windows.Forms.TextBox tb_RecordCompanys;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_Perfomers;
+        private System.Windows.Forms.Button btn_RecordCompanys;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tb_Album;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btn_Album;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
