@@ -30,24 +30,72 @@ namespace WindowsFormsAppStudentHelp
                 MessageBox.Show("Connected good!");
 
         }
-
+        static void SELECTIDENTITY(SqlCommand command, string IdVal)
+        {
+            command.CommandText = $"SELECT @@IDENTITY AS '{IdVal}'";
+        }
         private void btn_insert_Click(object sender, EventArgs e)
         {
             SqlCommand command = new SqlCommand(
-                "INSERT INTO [CatalogInMusicStore] (Id, IdRecords, IdPerformers, IdGenres, Price, Quantity, IdInformationAboutPerformers) VALUES (@Id, @IdRecords, @IdPerformers, @IdGenres, @Price, @Quantity, @Quantity, @IdInformationAboutPerformers)", sqlConnection);
+                "INSERT INTO [CatalogInMusicStore] (IdRecords, IdPerformers, IdGenres, IdRecordCompanys, Price, Quantity, NumberOfSales, IdInformationAboutPerformers) " +
+                "VALUES (@IdRecords, @IdPerformers, @IdGenres, @IdRecordCompanys, @Price, @Quantity, @NumberOfSales, @IdInformationAboutPerformers)", sqlConnection);
 
-            command.Parameters.AddWithValue("Id", tB_AlbumName.Text);
-            command.Parameters.AddWithValue("IdRecords", tB_Artist.Text);
-            command.Parameters.AddWithValue("IdPerformers", tB_Year.Text);
-            command.Parameters.AddWithValue("IdGenres", tB_RecordCompany.Text);
-            command.Parameters.AddWithValue("Price", tB_Media.Text);
-            command.Parameters.AddWithValue("Quantity", tB_PlayingTime.Text);
-            command.Parameters.AddWithValue("IdInformationAboutPerformers", tB_Quantity.Text);
-
+            //command.Parameters.AddWithValue("IdRecords", tB_IdRecords.Text);
+            //command.Parameters.AddWithValue("IdPerformers", tB_IdPerformers.Text);
+            //command.Parameters.AddWithValue("IdGenres", tB_IdGenres.Text);
+            //command.Parameters.AddWithValue("IdRecordCompanys", tB_RecordCompany.Text);
+            command.Parameters.AddWithValue("Price", tB_Price.Text);
+            command.Parameters.AddWithValue("Quantity", tB_Quantity.Text);
+            command.Parameters.AddWithValue("NumberOfSales", tb_NumberOfSalesStore.Text);
+            //command.Parameters.AddWithValue("IdInformationAboutPerformers", tB_IdInformationAboutPerformers.Text);
             MessageBox.Show(command.ExecuteNonQuery().ToString());
+
+            command.CommandText = "SELECT @@IDENTITY AS 'Id'";
+            MessageBox.Show(command.ExecuteScalar().ToString());
 
         }
 
+        private void tb_INSERTRECORDS_Click(object sender, EventArgs e)
+        {
+            SqlCommand commandRecordings = new SqlCommand(
+                "INSERT INTO [Recordings] (AlbumTitle, YearOfRelease, DateOfSale, NumberOfSales) " +
+                "VALUES (@AlbumTitle, @YearOfRelease, @DateOfSale, @NumberOfSales)", sqlConnection);
+
+            commandRecordings.Parameters.AddWithValue("AlbumTitle", tb_AlbumTitle.Text);
+            commandRecordings.Parameters.AddWithValue("DateOfSale", tb_DateOfSale.Text);
+            commandRecordings.Parameters.AddWithValue("NumberOfSales", tb_NumberOfSales.Text);
+
+
+            var commandCatalogInMusicStore = new SqlCommand("INSERT INTO [CatalogInMusicStore] (IdRecords) " +
+                "VALUES (@IdRecords)", sqlConnection);
+
+            SELECTIDENTITY(commandRecordings, "IdRecord");
+
+            var c = commandRecordings.ExecuteScalar().ToString();
+
+            commandCatalogInMusicStore.Parameters.AddWithValue("IdRecords", c);
+            MessageBox.Show(commandCatalogInMusicStore.ExecuteNonQuery().ToString());
+
+
+        }
+
+        private void btn_InsertPerfomers_Click(object sender, EventArgs e)
+        {
+            SqlCommand commandPerformers = new SqlCommand("INSERT INTO [Performers] (Performer) " +
+    "VALUES (@Performer)", sqlConnection);
+
+            commandPerformers.Parameters.AddWithValue("Performer", tb_Performer.Text);
+
+            var commandCatalogInMusicStore1 = new SqlCommand("INSERT INTO [CatalogInMusicStore] (IdPerformers) " +
+                "VALUES (@IdPerformers)", sqlConnection);
+            SELECTIDENTITY(commandPerformers, "IdPerformer");
+            var c1 = commandPerformers.ExecuteScalar().ToString();
+
+            commandCatalogInMusicStore1.Parameters.AddWithValue("IdPerformers", c1);
+
+
+            MessageBox.Show(c1);
+        }
 
         private void btn_Album_Click(object sender, EventArgs e)
         {
@@ -77,18 +125,9 @@ namespace WindowsFormsAppStudentHelp
             else
                 MessageBox.Show("Будь ласка, введіть дані!");
 
-            
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btn_Perfomers_Click(object sender, EventArgs e)
         {
@@ -154,13 +193,14 @@ namespace WindowsFormsAppStudentHelp
             string cbox = comboBox1.SelectedItem.ToString();
             if(cbox == "Кількість продаж")
             {
-                cmd = new SqlCommand("SELECT COUNT(DISTINCT CatalogInMusicStore.Quantity) FROM CatalogInMusicStore", sqlConnection);
+                cmd = new SqlCommand("SELECT COUNT(select sum(CatalogInMusicStore.Quantity) from CatalogInMusicStore", sqlConnection);
 
                 int countSale = Convert.ToInt32(cmd.ExecuteScalar());
                 cmd.Dispose();
-                MessageBox.Show("Загальна кількість продаж: " + countSale.ToString());
+                cmd.CommandText = "SELECT COUNT(select sum(CatalogInMusicStore.Quantity) from CatalogInMusicStore";
+                //MessageBox.Show("Загальна кількість продаж: " + cmd.);
             }
-            else if (cbox == "Кількість альбомів")
+            else if(cbox == "Кількість альбомів")
             {
                 cmd = new SqlCommand("SELECT COUNT(DISTINCT Recordings.AlbumTitle) FROM Recordings", sqlConnection);
 
